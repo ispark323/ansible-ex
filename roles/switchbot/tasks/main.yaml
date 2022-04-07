@@ -1,0 +1,17 @@
+---
+- name: Make directory
+  become: yes
+  file:
+    path: /opt/app
+    state: directory
+    owner: pi
+    group: pi
+    mode: '0755'
+
+- name: Copy code
+  template: 
+    src: "{{ item }}"
+    dest: /opt/app/{{ item }}
+  with_items:
+    - "switchbot.py"
+    - "main.py"

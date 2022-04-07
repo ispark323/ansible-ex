@@ -1,0 +1,17 @@
+---
+all:
+  hosts:
+  children:
+    pi:
+      hosts:
+        192.168.2.127:
+      vars:
+        ansible_ssh_user:
+          pi
+
+    orangepi:
+      hosts:
+        192.168.2.106:
+      vars:
+        ansible_ssh_user:
+          orangepi
